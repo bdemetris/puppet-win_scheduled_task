@@ -20,6 +20,8 @@ Puppet::Type.newtype(:import_task) do
       provider.destroy
       provider.create
       debug "Destroying and Recreating Task"
+    rescue
+      debug "Skipping: Task may not exist or create/destroy failed"
     end
   end
 
