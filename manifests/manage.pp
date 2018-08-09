@@ -22,7 +22,6 @@ define win_scheduled_task::manage (
       File {
         owner => 'Administrators',
         group => 'Users',
-        mode => '0700',
       }
 
       if ! defined(File["${facts['puppet_vardir']}/scheduledtasks"]) {
