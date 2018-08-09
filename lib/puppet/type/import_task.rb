@@ -17,7 +17,9 @@ Puppet::Type.newtype(:import_task) do
     begin
       provider.create
     rescue
-      debug "Skipping refresh: task exists"
+      provider.destroy
+      provider.create
+      debug "Destroying and Recreating Task"
     end
   end
 
