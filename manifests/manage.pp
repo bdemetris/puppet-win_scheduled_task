@@ -37,7 +37,7 @@ define win_scheduled_task::manage (
 
       import_task { $name:
         ensure    => $ensure,
-        task   => "${facts['puppet_vardir']}/scheduledtasks/${name}.xml",
+        task      => "${facts['puppet_vardir']}/scheduledtasks/${name}.xml",
         require   => File["${facts['puppet_vardir']}/scheduledtasks/${name}.xml"],
         subscribe => File["${facts['puppet_vardir']}/scheduledtasks/${name}.xml"],
       }
