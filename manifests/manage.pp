@@ -23,7 +23,7 @@ define win_scheduled_task::manage (
       # https://docs.microsoft.com/en-us/windows/security/identity-protection/access-control/security-identifiers
       File {
         owner => 'S-1-5-32-544', # Maps to Administrators
-        group => 'S-1-5-32-545	', # Maps to Users
+        group => 'S-1-5-32-545', # Maps to Users
       }
 
       if ! defined(File["${facts['puppet_vardir']}/scheduledtasks"]) {
