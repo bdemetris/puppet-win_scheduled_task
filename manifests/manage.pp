@@ -18,10 +18,12 @@ define win_scheduled_task::manage (
     }
   }
     default: {
-
+      # The following uses microsoft Security Identifiers vs Group names for language support.
+      # Such as German windows versions.
+      # https://docs.microsoft.com/en-us/windows/security/identity-protection/access-control/security-identifiers
       File {
-        owner => 'Administrators',
-        group => 'Users',
+        owner => 'S-1-5-32-544', # Maps to Administrators
+        group => 'S-1-5-32-545', # Maps to Users
       }
 
       if ! defined(File["${facts['puppet_vardir']}/scheduledtasks"]) {
